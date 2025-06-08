@@ -1,16 +1,22 @@
 package com.markos96.security.model.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "roles")
 public class Roles {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
+
+    public Roles() {}
+
+    public Roles(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;
